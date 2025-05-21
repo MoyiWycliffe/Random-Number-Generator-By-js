@@ -16,69 +16,66 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f0f4f8;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    .container {
-      background-color: #ffffff;
-      padding: 30px 40px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      padding: 30px;
+      background: #f0f0f0;
       text-align: center;
     }
-
+    div {
+      background-color: #fff;
+      width: fit-content;
+      text-align: center;
+      padding: 20px 40px;
+      margin: 5vw auto;
+      min-width: 200px;
+      max-width: 400px;
+      width: 80%;
+      box-shadow: 2px 3px 4px 5px grey;
+      border-radius: 5px;
+    }
+    main{
+      background-color: #817f7f;
+      height: fit-content;
+      padding:15px;
+      width: 60%;
+      margin-left: 20%;
+      margin-right: 20%;
+      text-align: center;
+      border-radius: 5px;
+      box-shadow: 2px 3px 4px 5px grey;
+    }
     h2 {
-      margin-bottom: 20px;
-      color: #2c3e50;
+      color: orange;
+      font-size: 2rem;
+      font-weight: 1000;
     }
-
-    label {
-      display: block;
-      margin: 10px 0 5px;
-      font-weight: bold;
-      color: #34495e;
+    label{
+      font-size: 1.2rem;
+      margin-right: 10px;
     }
-
-    input[type="number"] {
+    input{
       padding: 10px;
-      width: 100%;
-      max-width: 200px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      margin-bottom: 10px;
-    }
-
-    button {
-      padding: 10px 25px;
       font-size: 1rem;
-      background-color: #3498db;
-      color: white;
-      border: none;
+      width: 60px;
+      margin: 5px;
       border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1.3rem;
       cursor: pointer;
-      transition: 0.3s ease;
-      margin-top: 10px;
+      margin-top: 15px;
+      background-color: yellow;
+      border-radius: 8px;
     }
-
-    button:hover {
-      background-color: #2980b9;
-    }
-
     #result {
-      margin-top: 20px;
-      font-size: 1.5rem;
-      color: #27ae60;
-      font-weight: bold;
+      font-size: 2rem;
+      color: #007bff;
     }
   </style>
 </head>
 <body>
-
+<main>
 <h2>Random Number Generator</h2>
 
 <label for="min">Minimum:</label>
@@ -87,12 +84,12 @@
 <label for="max">Maximum:</label>
 <input type="number" id="max" placeholder="Max" />
 
-<br/>
+<br>
 
 <button onclick="generateRandom()">Generate</button>
 
-<div id="result"></div>
-
+<div id="result">The Number Will Appear Here.</div>
+</main>
 <script>
   function generateRandom() {
     const min = Number(document.getElementById('min').value);
