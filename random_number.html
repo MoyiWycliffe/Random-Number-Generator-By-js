@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Random Number Generator</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 30px;
+    background: #f8f8f8;
+    text-align: center;
+  }
+  input {
+    padding: 8px;
+    width: 100px;
+    margin: 10px;
+    font-size: 1rem;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+  #result {
+    margin-top: 25px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+  }
+</style>
+</head>
+<body>
+
+<h2>Random Number Generator</h2>
+
+<label for="min">Minimum:</label>
+<input type="number" id="min" placeholder="Min" />
+
+<label for="max">Maximum:</label>
+<input type="number" id="max" placeholder="Max" />
+
+<br/>
+
+<button onclick="generateRandom()">Generate</button>
+
+<div id="result"></div>
+
+<script>
+  function generateRandom() {
+    const min = Number(document.getElementById('min').value);
+    const max = Number(document.getElementById('max').value);
+    const result = document.getElementById('result');
+
+    if (isNaN(min) || isNaN(max)) {
+      result.textContent = 'Please enter valid numbers!';
+      return;
+    }
+    if (min > max) {
+      result.textContent = 'Minimum should be less than or equal to Maximum.';
+      return;
+    }
+
+    const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+    result.textContent = `Random Number: ${randomNum}`;
+  }
+</script>
+
+</body>
+</html>
