@@ -13,32 +13,69 @@
   gtag('config', 'G-80DF985WP6');
 </script>
 <title>Random Number Generator</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    padding: 30px;
-    background: #f8f8f8;
-    text-align: center;
-  }
-  input {
-    padding: 8px;
-    width: 100px;
-    margin: 10px;
-    font-size: 1rem;
-  }
-  button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-top: 15px;
-  }
-  #result {
-    margin-top: 25px;
-    font-size: 2rem;
-    font-weight: bold;
-    color: #333;
-  }
-</style>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #ffffff;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+      color: #34495e;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      width: 100%;
+      max-width: 200px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 25px;
+      font-size: 1rem;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      color: #27ae60;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
 
