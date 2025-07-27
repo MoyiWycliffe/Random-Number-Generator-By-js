@@ -3,15 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-80DF985WP6"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-80DF985WP6');
-</script>
+<link rel="icon" href="https://manteads.com/media/favicon.ico" type="image/png" />
 <title>Random Number Generator</title>
   <style>
     body {
@@ -33,7 +25,7 @@
       border-radius: 5px;
     }
     main{
-      background-color: #817f7f;
+      background-color: #fffdfd;
       height: fit-content;
       padding:15px;
       width: 60%;
@@ -41,7 +33,7 @@
       margin-right: 20%;
       text-align: center;
       border-radius: 5px;
-      box-shadow: 2px 3px 4px 5px grey;
+      box-shadow: 2px 3px 4px 1px rgb(69, 69, 69);
     }
     h2 {
       color: orange;
@@ -69,15 +61,32 @@
       border-radius: 8px;
     }
     #result {
-      font-size: 2rem;
+      font-size: 1.4rem;
       color: #007bff;
+      padding: 5px 1px;
+      width: 100%;
     }
+
+    @media (max-width: 600px) {
+  main {
+    width: 90%;
+    margin: 20px auto;
+    padding: 10px;
+  }
+  input {
+    width: 80px;
+  }
+  button {
+    width: 100%;
+  }
+}
+
   </style>
 </head>
 <body>
 <main>
 <h2>Random Number Generator</h2>
-
+<form onsubmit="generateRandom(); return false;">
 <label for="min">Minimum:</label>
 <input type="number" id="min" placeholder="Min" />
 
@@ -88,7 +97,8 @@
 
 <button onclick="generateRandom()">Generate</button>
 
-<div id="result">The Number Will Appear Here.</div>
+<div id="result" aria-live="polite">The Number Will Appear Here.</div>
+</form>
 </main>
 <script>
   function generateRandom() {
@@ -98,17 +108,21 @@
 
     if (isNaN(min) || isNaN(max)) {
       result.textContent = 'Please enter valid numbers!';
+      result.style.color ='red';
       return;
     }
     if (min > max) {
       result.textContent = 'Minimum should be less than or equal to Maximum.';
+      result.style.color = 'red';
       return;
     }
 
     const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+    result.style.color = '#007bff';
     result.textContent = `Random Number: ${randomNum}`;
   }
 </script>
+<footer style="margin-top: 30px; color: #777; font-size: 0.9rem;">Created by MANTE — 2025</footer>
 
 </body>
 </html>
