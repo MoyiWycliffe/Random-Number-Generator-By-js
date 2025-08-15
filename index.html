@@ -5,101 +5,119 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="icon" href="https://manteads.com/media/favicon.ico" type="image/png" />
 <title>Random Number Generator</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 30px;
-      background: #f0f0f0;
-      text-align: center;
+<style>
+  /* GLOBAL STYLES */
+  body {
+    font-family: Arial, sans-serif;
+    padding: 30px;
+    background: linear-gradient(135deg, #f9f9f9, #dbe6f1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  main {
+    background-color: #fff;
+    width: 90%;
+    max-width: 400px;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    text-align: center;
+    transition: transform 0.3s;
+  }
+
+  main:hover {
+    transform: translateY(-5px);
+  }
+
+  h2 {
+    color: #ff8c00;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  label {
+    font-size: 1.1rem;
+    margin-right: 5px;
+  }
+
+  input {
+    padding: 10px;
+    font-size: 1rem;
+    width: 60px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+
+  button {
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 15px;
+    background: linear-gradient(45deg, #ffdb4d, #ffd700);
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+  }
+
+  button:hover {
+    background: linear-gradient(45deg, #ffd700, #ffdb4d);
+    transform: scale(1.05);
+  }
+
+  #result {
+    font-size: 1.4rem;
+    color: #007bff;
+    padding: 10px;
+    margin-top: 15px;
+    min-height: 40px;
+    transition: all 0.3s;
+    font-weight: bold;
+  }
+
+  footer {
+    margin-top: 30px;
+    color: #555;
+    font-size: 0.9rem;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 500px) {
+    input {
+      width: 80px;
     }
-    div {
-      background-color: #fff;
-      width: fit-content;
-      text-align: center;
-      padding: 20px 40px;
-      margin: 5vw auto;
-      min-width: 200px;
-      max-width: 400px;
-      width: 80%;
-      box-shadow: 2px 3px 4px 5px grey;
-      border-radius: 5px;
-    }
-    main{
-      background-color: #fffdfd;
-      height: fit-content;
-      padding:15px;
-      width: 60%;
-      margin-left: 20%;
-      margin-right: 20%;
-      text-align: center;
-      border-radius: 5px;
-      box-shadow: 2px 3px 4px 1px rgb(69, 69, 69);
-    }
-    h2 {
-      color: orange;
-      font-size: 2rem;
-      font-weight: 1000;
-    }
-    label{
-      font-size: 1.2rem;
-      margin-right: 10px;
-    }
-    input{
-      padding: 10px;
-      font-size: 1rem;
-      width: 60px;
-      margin: 5px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
+
     button {
-      padding: 10px 20px;
-      font-size: 1.3rem;
-      cursor: pointer;
-      margin-top: 15px;
-      background-color: yellow;
-      border-radius: 8px;
-    }
-    #result {
-      font-size: 1.4rem;
-      color: #007bff;
-      padding: 5px 1px;
       width: 100%;
     }
-
-    @media (max-width: 600px) {
-  main {
-    width: 90%;
-    margin: 20px auto;
-    padding: 10px;
   }
-  input {
-    width: 80px;
-  }
-  button {
-    width: 100%;
-  }
-}
-
-  </style>
+</style>
 </head>
 <body>
+
 <main>
-<h2>Random Number Generator</h2>
-<form onsubmit="generateRandom(); return false;">
-<label for="min">Minimum:</label>
-<input type="number" id="min" placeholder="Min" />
+  <h2>Random Number Generator</h2>
+  <form onsubmit="generateRandom(); return false;">
+    <label for="min">Min:</label>
+    <input type="number" id="min" placeholder="0" />
 
-<label for="max">Maximum:</label>
-<input type="number" id="max" placeholder="Max" />
+    <label for="max">Max:</label>
+    <input type="number" id="max" placeholder="100" />
 
-<br>
+    <br>
+    <button type="submit">Generate</button>
 
-<button onclick="generateRandom()">Generate</button>
-
-<div id="result" aria-live="polite">The Number Will Appear Here.</div>
-</form>
+    <div id="result" aria-live="polite">Your random number will appear here.</div>
+  </form>
 </main>
+
+<footer>Created by MANTE — 2025</footer>
+
 <script>
   function generateRandom() {
     const min = Number(document.getElementById('min').value);
@@ -112,17 +130,16 @@
       return;
     }
     if (min > max) {
-      result.textContent = 'Minimum should be less than or equal to Maximum.';
+      result.textContent = 'Minimum should be ≤ Maximum.';
       result.style.color = 'red';
       return;
     }
 
     const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
     result.style.color = '#007bff';
-    result.textContent = `Random Number: ${randomNum}`;
+    result.textContent = `🎯 Random Number: ${randomNum}`;
   }
 </script>
-<footer style="margin-top: 30px; color: #777; font-size: 0.9rem;">Created by MANTE — 2025</footer>
 
 </body>
 </html>
